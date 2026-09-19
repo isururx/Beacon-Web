@@ -9,72 +9,61 @@ type TournamentOverviewProps = {
 export default function TournamentOverview({
   tournament,
 }: TournamentOverviewProps) {
-  const totalSports = tournament.sports.length;
-  const totalFaculties = tournament.standings.length;
-
-  const completedMatches = tournament.recentMatches.filter(
-    (match) => match.status === "completed"
-  ).length;
-
   return (
-    <section className="px-6 py-16 md:px-10 lg:px-16">
-      <div className="mx-auto max-w-7xl">
+    <section className="relative overflow-hidden px-4 pb-10 pt-8 md:px-8 md:pb-12 md:pt-10 lg:px-12">
+      {/* Ambient background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-blue-500/[0.07] blur-[140px]" />
 
-        {/* Section Heading */}
-        <div className="mb-8">
-          <p className="mb-2 text-sm font-medium uppercase tracking-[0.3em] text-blue-400">
-            01 — Tournament Overview
-          </p>
+      <div className="relative mx-auto max-w-7xl">
 
-          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                {tournament.name}
-              </h2>
+        {/* Tournament Identity */}
+        <div className="mb-7 flex flex-col justify-between gap-5 md:flex-row md:items-end">
 
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-white/55 md:text-base">
-                {tournament.description}
-              </p>
+          <div className="min-w-0">
+
+            {/* Section label */}
+            <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.35em] text-blue-400">
+              01 / Sports
+            </p>
+
+            {/* Tournament Name */}
+            <h1 className="whitespace-nowrap text-[clamp(2.5rem,6vw,5.5rem)] font-semibold uppercase leading-none tracking-[-0.04em] text-white">
+              {tournament.name}
+            </h1>
+
+            {/* Location + Year */}
+            <div className="mt-4 flex items-center gap-3 text-sm text-white/45">
+              <span>University of Colombo</span>
+
+              <span className="h-1 w-1 rounded-full bg-white/20" />
+
+              <span>{tournament.year}</span>
             </div>
+          </div>
 
-            <div className="rounded-full border border-blue-400/20 bg-blue-400/5 px-4 py-2 text-sm text-blue-300">
+          {/* Tournament Status */}
+          <div className="flex items-center gap-2 self-start rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] px-4 py-2 md:self-end">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
+
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+
+            <span className="text-xs font-medium uppercase tracking-[0.15em] text-emerald-300">
               {tournament.status}
-            </div>
+            </span>
           </div>
         </div>
 
-        {/* Tournament Stats */}
-        <div className="mb-8 grid grid-cols-2 gap-3 md:grid-cols-4">
-          <Stat
-            label="Year"
-            value={String(tournament.year)}
-          />
+        {/* Main Tournament Overview */}
+        <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
 
-          <Stat
-            label="Sports"
-            value={String(totalSports)}
-          />
-
-          <Stat
-            label="Faculties"
-            value={String(totalFaculties)}
-          />
-
-          <Stat
-            label="Completed Matches"
-            value={String(completedMatches)}
-          />
-        </div>
-
-        {/* Points + Top 5 */}
-        <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-
-          {/* Full Points Table */}
+          {/* Faculty Points Table */}
           <FacultyPointsTable
             standings={tournament.standings}
           />
 
-          {/* Top Five */}
+          {/* Animated Top 5 */}
           <TopFivePodium
             standings={tournament.standings}
           />
@@ -82,25 +71,5 @@ export default function TournamentOverview({
         </div>
       </div>
     </section>
-  );
-}
-
-function Stat({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-md">
-      <p className="text-xs uppercase tracking-[0.2em] text-white/35">
-        {label}
-      </p>
-
-      <p className="mt-2 text-2xl font-semibold text-white">
-        {value}
-      </p>
-    </div>
   );
 }
