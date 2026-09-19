@@ -46,7 +46,7 @@ export type Sport = {
 
 // ============================================================
 // MATCH
-// Used later for live/upcoming match functionality.
+// Reserved for future detailed/live match functionality.
 // ============================================================
 
 export type Match = {
@@ -82,8 +82,10 @@ export type Match = {
 // ============================================================
 // RECENT MATCH RESULT
 //
-// Recent matches show the FIRST 3 FACULTIES only.
-// This is different from the overall tournament standings.
+// A completed sporting event displays only:
+// 1st place
+// 2nd place
+// 3rd place
 // ============================================================
 
 export type MatchPlacement = {
@@ -95,7 +97,6 @@ export type MatchPlacement = {
 
   points: number;
 };
-
 
 export type RecentMatch = {
   id: string;
@@ -112,9 +113,6 @@ export type RecentMatch = {
 
 // ============================================================
 // UPCOMING MATCH
-//
-// Intentionally contains only the information required for
-// the public upcoming-match section.
 // ============================================================
 
 export type UpcomingMatch = {
@@ -132,8 +130,6 @@ export type UpcomingMatch = {
 
 // ============================================================
 // SPORTS LIVE FEED
-//
-// These represent recent Facebook video/update posts.
 // ============================================================
 
 export type SportsFeed = {
@@ -182,9 +178,6 @@ export type Tournament = {
 
 // ============================================================
 // CURRENT TOURNAMENT
-//
-// Frontend mock data for the Sports Dashboard.
-// Later this same structure can be populated by the backend.
 // ============================================================
 
 export const tournament: Tournament = {
@@ -230,18 +223,18 @@ export const tournament: Tournament = {
   // ==========================================================
   // FACULTY CHAMPIONSHIP STANDINGS
   //
-  // These are the overall tournament standings.
+  // All 9 official faculties.
   // ==========================================================
 
   standings: [
     {
-      id: "faculty-1",
+      id: "faculty-arts",
 
-      faculty: "Faculty of Technology",
+      faculty: "Faculty of Arts",
 
-      shortName: "FOT",
+      shortName: "ARTS",
 
-      logo: "/images/faculties/technology.jpg",
+      logo: "/images/faculties/Arts.jpg",
 
       points: 42,
 
@@ -252,13 +245,13 @@ export const tournament: Tournament = {
     },
 
     {
-      id: "faculty-2",
+      id: "faculty-education",
 
-      faculty: "Faculty of Science",
+      faculty: "Faculty of Education",
 
-      shortName: "FOS",
+      shortName: "EDU",
 
-      logo: "/images/faculties/science.jpg",
+      logo: "/images/faculties/Education.jpg",
 
       points: 38,
 
@@ -269,13 +262,13 @@ export const tournament: Tournament = {
     },
 
     {
-      id: "faculty-3",
+      id: "faculty-indigenous-medicine",
 
-      faculty: "Faculty of Management",
+      faculty: "Faculty of Indigenous Medicine",
 
-      shortName: "FOM",
+      shortName: "FIM",
 
-      logo: "/images/faculties/management.jpg",
+      logo: "/images/faculties/Indigenous Medicine.jpg",
 
       points: 34,
 
@@ -286,13 +279,30 @@ export const tournament: Tournament = {
     },
 
     {
-      id: "faculty-4",
+      id: "faculty-law",
 
-      faculty: "Faculty of Arts",
+      faculty: "Faculty of Law",
 
-      shortName: "FOA",
+      shortName: "LAW",
 
-      logo: "/images/faculties/arts.jpg",
+      logo: "/images/faculties/Law.jpg",
+
+      points: 31,
+
+      played: 8,
+      won: 4,
+      lost: 2,
+      drawn: 2,
+    },
+
+    {
+      id: "faculty-management-finance",
+
+      faculty: "Faculty of Management & Finance",
+
+      shortName: "FMF",
+
+      logo: "/images/faculties/Fmf.png",
 
       points: 29,
 
@@ -303,37 +313,71 @@ export const tournament: Tournament = {
     },
 
     {
-      id: "faculty-5",
+      id: "faculty-medicine",
 
-      faculty: "Faculty of Law",
+      faculty: "Faculty of Medicine",
 
-      shortName: "FOL",
+      shortName: "MED",
 
-      logo: "/images/faculties/law.jpg",
+      logo: "/images/faculties/Medicine.jpg",
 
-      points: 25,
+      points: 26,
 
       played: 8,
       won: 3,
-      lost: 4,
-      drawn: 1,
+      lost: 3,
+      drawn: 2,
     },
 
     {
-      id: "faculty-6",
+      id: "faculty-nursing",
 
-      faculty: "Faculty of Education",
+      faculty: "Faculty of Nursing",
 
-      shortName: "FOE",
+      shortName: "NURS",
 
-      logo: "/images/faculties/education.jpg",
+      logo: "/images/faculties/Nursing.jpg",
 
-      points: 21,
+      points: 23,
 
       played: 8,
       won: 3,
       lost: 5,
       drawn: 0,
+    },
+
+    {
+      id: "faculty-science",
+
+      faculty: "Faculty of Science",
+
+      shortName: "SCI",
+
+      logo: "/images/faculties/Science.jpg",
+
+      points: 20,
+
+      played: 8,
+      won: 2,
+      lost: 4,
+      drawn: 2,
+    },
+
+    {
+      id: "faculty-technology",
+
+      faculty: "Faculty of Technology",
+
+      shortName: "TECH",
+
+      logo: "/images/faculties/Technology.jpg",
+
+      points: 17,
+
+      played: 8,
+      won: 2,
+      lost: 5,
+      drawn: 1,
     },
   ],
 
@@ -341,7 +385,7 @@ export const tournament: Tournament = {
   // ==========================================================
   // RECENT MATCH RESULTS
   //
-  // Only the first 3 faculties are displayed for each result.
+  // Only 1st / 2nd / 3rd are shown.
   // ==========================================================
 
   recentMatches: [
@@ -354,9 +398,9 @@ export const tournament: Tournament = {
         {
           position: 1,
 
-          faculty: "Faculty of Technology",
+          faculty: "Faculty of Arts",
 
-          photo: "/images/faculties/technology.jpg",
+          photo: "/images/faculties/Arts.jpg",
 
           points: 142,
         },
@@ -366,7 +410,7 @@ export const tournament: Tournament = {
 
           faculty: "Faculty of Science",
 
-          photo: "/images/faculties/science.jpg",
+          photo: "/images/faculties/Science.jpg",
 
           points: 137,
         },
@@ -374,9 +418,9 @@ export const tournament: Tournament = {
         {
           position: 3,
 
-          faculty: "Faculty of Management",
+          faculty: "Faculty of Technology",
 
-          photo: "/images/faculties/management.jpg",
+          photo: "/images/faculties/Technology.jpg",
 
           points: 121,
         },
@@ -401,7 +445,7 @@ export const tournament: Tournament = {
 
           faculty: "Faculty of Science",
 
-          photo: "/images/faculties/science.jpg",
+          photo: "/images/faculties/Science.jpg",
 
           points: 3,
         },
@@ -411,7 +455,7 @@ export const tournament: Tournament = {
 
           faculty: "Faculty of Arts",
 
-          photo: "/images/faculties/arts.jpg",
+          photo: "/images/faculties/Arts.jpg",
 
           points: 1,
         },
@@ -421,7 +465,7 @@ export const tournament: Tournament = {
 
           faculty: "Faculty of Technology",
 
-          photo: "/images/faculties/technology.jpg",
+          photo: "/images/faculties/Technology.jpg",
 
           points: 0,
         },
@@ -444,9 +488,9 @@ export const tournament: Tournament = {
         {
           position: 1,
 
-          faculty: "Faculty of Management",
+          faculty: "Faculty of Management & Finance",
 
-          photo: "/images/faculties/management.jpg",
+          photo: "/images/faculties/Fmf.png",
 
           points: 3,
         },
@@ -456,7 +500,7 @@ export const tournament: Tournament = {
 
           faculty: "Faculty of Technology",
 
-          photo: "/images/faculties/technology.jpg",
+          photo: "/images/faculties/Technology.jpg",
 
           points: 1,
         },
@@ -466,7 +510,7 @@ export const tournament: Tournament = {
 
           faculty: "Faculty of Arts",
 
-          photo: "/images/faculties/arts.jpg",
+          photo: "/images/faculties/Arts.jpg",
 
           points: 0,
         },
@@ -484,11 +528,7 @@ export const tournament: Tournament = {
   // ==========================================================
   // UPCOMING MATCHES
   //
-  // Only:
-  // Sport
-  // Venue
-  // Date
-  // Time
+  // Sport + Venue + Date + Time
   // ==========================================================
 
   upcomingMatches: [
@@ -532,8 +572,6 @@ export const tournament: Tournament = {
 
   // ==========================================================
   // RECENT LIVE FEEDS
-  //
-  // Mock Facebook video/update posts.
   // ==========================================================
 
   liveFeeds: [
