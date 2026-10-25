@@ -1,4 +1,24 @@
-# Colombo Beacon — Web Platform
+ <p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:020817,50:071A33,100:123B70&height=230&section=header&text=COLOMBO%20BEACON&fontSize=48&fontColor=FFFFFF&fontAlignY=40&desc=Navigation%20Towards%20Destination&descSize=16&descAlignY=60&animation=fadeIn&stroke=60A5FA&strokeWidth=1" width="100%" alt="Colombo Beacon — Navigation Towards Destination" />
+</p>
+
+<p align="center">
+  <b>A digital home for our community, memories, events, and legacy.</b>
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=15&duration=3000&pause=900&color=60A5FA&center=true&vCenter=true&width=600&lines=Building+community+through+technology;Celebrating+memories+and+our+legacy;Connecting+people+through+Colombo+Beacon" alt="Animated typing introduction" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-020817?style=for-the-badge&logo=next.js&logoColor=FFFFFF" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-071A33?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-123B70?style=for-the-badge&logo=typescript&logoColor=FFFFFF" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-0B2545?style=for-the-badge&logo=tailwindcss&logoColor=38BDF8" alt="Tailwind CSS" />
+</p>
+
+---
+
 
 A responsive web platform for **Colombo Beacon**, built to showcase the club, its events, articles, memories, history, and university sports coverage. The UI uses a dark navy visual system with blue accents, glow effects, image-led sections, and motion to create a polished editorial experience.
 
